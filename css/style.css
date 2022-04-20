@@ -1,0 +1,40 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* universal selector, selects all of the elements on the page */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*changes the box model so that the borders and padding isn't added to a total width and hight that we specify for the box */
+}
+
+/* project-wide font definitions */
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 30px;
+}
+
+.header {
+  height: 95vh; /* Relative to 1% of the height of the viewport. Vieport is the browser window size. If the viewport is 50 cm tall, 1vh = 0.5cm. */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(128, 214, 113, 0.8),
+      rgba(40, 180, 133, 0.8)
+    ),
+    url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+
+  /* clip-path CSS property creates a clipping region that sets what part of an element should be shown. Parts that are inside the region are shown, while those outside are hidden. */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
