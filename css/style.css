@@ -34,7 +34,45 @@ body {
     url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
+  position: relative;
 
   /* clip-path CSS property creates a clipping region that sets what part of an element should be shown. Parts that are inside the region are shown, while those outside are hidden. */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo-box {
+    position: absolute; /* with position absolute the reference point is the parent element that has its position set to relative, so header is the origin from where the top and left start to count*/
+    top: 40px;
+    left: 40px; 
+}
+
+.logo {
+    height: 35px;
+}
+
+.text-box {
+  position: absolute;
+  top: 40%; /*40% and 50% is in relation to the parent elements*/
+  left: 50%;
+  transform: translate(-50%, -50%); /*this is in relation to the element itself*/
+  /*this code centers a block element perfectly in the middle*/
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
 }
