@@ -4,6 +4,7 @@ $color-primary-dark: #28b485;
 
 $color-grey-dark: #777;
 $color-white: #fff;
+$color-black: #000;
 
 /* universal selector, selects all of the elements on the page */
 *,
@@ -44,25 +45,25 @@ body {
 
   /* clip-path CSS property creates a clipping region that sets what part of an element should be shown. Parts that are inside the region are shown, while those outside are hidden. */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-}
 
-.header__logo-box {
+  &__logo-box {
     position: absolute; /* with position absolute the reference point is the parent element that has its position set to relative, so header is the origin from where the top and left start to count*/
     top: 4rem;
-    left: 4rem; 
-}
+    left: 4rem;
+  }
 
-.header__logo {
+  &__logo {
     height: 3.5rem;
 }
 
-.header__text-box {
-  position: absolute;
-  top: 40%; /*40% and 50% is in relation to the parent elements*/
-  left: 50%;
-  transform: translate(-50%, -50%); /*this is in relation to the element itself*/
-  /*this code centers a block element perfectly in the middle*/
-  text-align: center; /*aligns the Discover our tours button centrally because it's an inline element and it's treated as text.*/
+  &__text-box {
+    position: absolute;
+    top: 40%; /*40% and 50% is in relation to the parent elements*/
+    left: 50%;
+    transform: translate(-50%, -50%); /*this is in relation to the element itself*/
+    /*this code centers a block element perfectly in the middle*/
+    text-align: center; /*aligns the Discover our tours button centrally because it's an inline element and it's treated as text.*/
+  }
 }
 
 .heading-primary {
@@ -71,28 +72,28 @@ body {
 
   backface-visibility: hidden; /*fixes the shaking issue, no one really knows why*/
   margin-bottom: 6rem;
-}
 
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-
-  animation-name: moveInFromLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-}
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-
-  animation-name: moveInFromRight;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+  
+    animation-name: moveInFromLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+  }
+  
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+  
+    animation-name: moveInFromRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+  }
 }
 
 @keyframes moveInFromLeft {
@@ -139,56 +140,61 @@ body {
   }
 }
 
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  border-radius: 10rem;
-  transition: all .2s;
-  position: relative;
-  font-size: 1.6rem;
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative;
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black,.2);
+    
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 .5rem 1rem rgba($color-black,.2); 
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+  }
+
+  
+
+  &--animated {
+    animation: moveInFromBottom .5s ease-out .75s; /*the last value is animation delay*/
+    animation-fill-mode: backwards; /*applies the 0% animation styles to the button before the animation starts*/
+  }
 }
 
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0,0,0,.2); 
-}
-
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 .5rem 1rem rgba(0,0,0,.2); 
-}
-
-.btn--white {
-  background-color: $color-white;
-  color: $color-grey-dark;
-}
-
-.btn::after {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all .4s;
-}
-
-.btn--white::after {
-  background-color: $color-white;
-}
-
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-}
-
-.btn--animated {
-  animation: moveInFromBottom .5s ease-out .75s; /*the last value is animation delay*/
-  animation-fill-mode: backwards; /*applies the 0% animation styles to the button before the animation starts*/
-}

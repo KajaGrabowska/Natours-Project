@@ -30,26 +30,23 @@ body {
   position: relative;
   /* clip-path CSS property creates a clipping region that sets what part of an element should be shown. Parts that are inside the region are shown, while those outside are hidden. */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-
-.header__logo-box {
-  position: absolute;
-  /* with position absolute the reference point is the parent element that has its position set to relative, so header is the origin from where the top and left start to count*/
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo {
-  height: 3.5rem; }
-
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  /*40% and 50% is in relation to the parent elements*/
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /*this is in relation to the element itself*/
-  /*this code centers a block element perfectly in the middle*/
-  text-align: center;
-  /*aligns the Discover our tours button centrally because it's an inline element and it's treated as text.*/ }
+  .header__logo-box {
+    position: absolute;
+    /* with position absolute the reference point is the parent element that has its position set to relative, so header is the origin from where the top and left start to count*/
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    /*40% and 50% is in relation to the parent elements*/
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*this is in relation to the element itself*/
+    /*this code centers a block element perfectly in the middle*/
+    text-align: center;
+    /*aligns the Discover our tours button centrally because it's an inline element and it's treated as text.*/ }
 
 .heading-primary {
   color: #fff;
@@ -57,24 +54,22 @@ body {
   backface-visibility: hidden;
   /*fixes the shaking issue, no one really knows why*/
   margin-bottom: 6rem; }
-
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation-name: moveInFromLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out; }
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  animation-name: moveInFromRight;
-  animation-duration: 1s;
-  animation-timing-function: ease-out; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInFromLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation-name: moveInFromRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; }
 
 @keyframes moveInFromLeft {
   0% {
@@ -107,8 +102,7 @@ body {
     transform: translate(0);
     /*0 because at the end we want it to look the way it looks now*/ } }
 
-.btn:link,
-.btn:visited {
+.btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
@@ -121,6 +115,9 @@ body {
 .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; }
 
 .btn:active {
   transform: translateY(-1px);
@@ -129,6 +126,8 @@ body {
 .btn--white {
   background-color: #fff;
   color: #777; }
+  .btn--white::after {
+    background-color: #fff; }
 
 .btn::after {
   content: "";
@@ -141,13 +140,6 @@ body {
   left: 0;
   z-index: -1;
   transition: all .4s; }
-
-.btn--white::after {
-  background-color: #fff; }
-
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
 
 .btn--animated {
   animation: moveInFromBottom .5s ease-out .75s;
