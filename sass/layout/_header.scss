@@ -1,0 +1,37 @@
+.header {
+  height: 95vh; /* Relative to 1% of the height of the viewport. Vieport is the browser window size. If the viewport is 50 cm tall, 1vh = 0.5cm. */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+
+  /* clip-path CSS property creates a clipping region that sets what part of an element should be shown. Parts that are inside the region are shown, while those outside are hidden. */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  &__logo-box {
+    position: absolute; /* with position absolute the reference point is the parent element that has its position set to relative, so header is the origin from where the top and left start to count*/
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%; /*40% and 50% is in relation to the parent elements*/
+    left: 50%;
+    transform: translate(
+      -50%,
+      -50%
+    ); /*this is in relation to the element itself*/
+    /*this code centers a block element perfectly in the middle*/
+    text-align: center; /*aligns the Discover our tours button centrally because it's an inline element and it's treated as text.*/
+  }
+}
